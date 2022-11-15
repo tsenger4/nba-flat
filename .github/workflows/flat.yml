@@ -1,11 +1,12 @@
 name: data
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: 0 * * * *
   workflow_dispatch: {}
   push:
     paths:
       - .github/workflows/flat.yml
+      - ./players-parser.js
 jobs:
   scheduled:
     runs-on: ubuntu-latest
@@ -21,3 +22,4 @@ jobs:
         with:
           http_url: http://data.nba.net/data/10s/prod/v1/2022/players.json
           downloaded_filename: players.json
+          postprocess: ./players-parser.js
