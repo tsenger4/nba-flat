@@ -8,7 +8,7 @@ const data_minimal = data.league.standard.slice(0, 10);
 
 await writeJSON(newfile, data_minimal);
 
-const year = new Date().getFullYear() - 1;
+const year = new Date().getFullYear();
 
 for (var i in data_minimal) {
 
